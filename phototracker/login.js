@@ -9,11 +9,11 @@ function toggleSignIn() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     if (email.length < 4) {
-      alert('Please enter an email address.');
+      alert('Introduce una cuenta de correo válida.');
       return;
     }
     if (password.length < 4) {
-      alert('Please enter a password.');
+      alert('Introduce tu contraseña.');
       return;
     }
 
@@ -22,13 +22,14 @@ function toggleSignIn() {
       var errorMessage = error.message;
 
       if (errorCode === 'auth/wrong-password') {
-        alert('Wrong password.');
+        alert('Contraseña errónea.');
       } else {
         alert(errorMessage);
       }
       console.log(error);
       document.getElementById('quickstart-sign-in').disabled = false;
     });
+    window.open("index.html","_self");
   }
   document.getElementById('quickstart-sign-in').disabled = true;
 }
@@ -41,11 +42,11 @@ function handleSignUp() {
   var password = document.getElementById('password').value;
 
   if (email.length < 4) {
-    alert('Please enter an email address.');
+    alert('Introduce una cuenta de correo válida.');
     return;
   }
   if (password.length < 4) {
-    alert('Please enter a password.');
+    alert('Introduce una contraseña.');
     return;
   }
 
@@ -54,12 +55,14 @@ function handleSignUp() {
     var errorMessage = error.message;
 
     if (errorCode == 'auth/weak-password') {
-      alert('The password is too weak.');
+      alert('La contraseña es demasiado corta.');
     } else {
       alert(errorMessage);
     }
     console.log(error);
   });
+  alert('Usuario creado, iniciando sesión...');
+  window.open("index.html","_self");
 }
 
 /**
@@ -75,7 +78,7 @@ function sendPasswordReset() {
   var email = document.getElementById('email').value;
 
   firebase.auth().sendPasswordResetEmail(email).then(function() {
-    alert('Password Reset Email Sent!');
+    alert('Te hemos enviado un email para resetear la contraseña');
   }).catch(function(error) {
     var errorCode = error.code;
     var errorMessage = error.message;
@@ -111,7 +114,7 @@ function initApp() {
       //if (!emailVerified) {
        //document.getElementById('quickstart-verify-email').disabled = false;
       //}
-      window.open("index.html","_self")
+      // window.open("index.html","_self");
     } else {
       //document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
       document.getElementById('quickstart-sign-in').textContent = 'Iniciar sesión';
@@ -121,9 +124,9 @@ function initApp() {
   });
 
   document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
-  // document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
-  // document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
-  // document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
+  document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
+  //document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
+  document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
 }
 
 window.onload = function() {

@@ -452,20 +452,6 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   max-width: 25rem;
 }
 
-.card-login .btn {
-  background-color: #558B2F;
-  border-color: #558B2F;
-}
-
-.card-login .btn:hover {
-  background-color: #446f25;
-  border-color: #446f25;
-}
-
-.card-register {
-  max-width: 40rem;
-}
-
 footer.sticky-footer {
   position: absolute;
   right: 0;
