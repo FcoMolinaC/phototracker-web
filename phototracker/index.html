@@ -268,7 +268,7 @@
           <div class="modal-body">Pulsa en "salir" si deseas abandonar la sesión actual.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-            <a class="btn btn-danger" href="login.html">Salir</a>
+            <button class="btn btn-danger" id="sign-out">Salir</button>
           </div>
         </div>
       </div>
@@ -299,6 +299,20 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpap_CnUj_15RDB9le6D8wK3nvux3CxKk&callback=initMap"
     async defer></script>
     <script src="js/lightbox-plus-jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDdmSZ16JdVqeYROvIPmTTCYdOmyNzqCj8",
+        authDomain: "phototrack-54e73.firebaseapp.com",
+        databaseURL: "https://phototrack-54e73.firebaseio.com",
+        projectId: "phototrack-54e73",
+        storageBucket: "phototrack-54e73.appspot.com",
+        messagingSenderId: "298608998639"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="index.js"></script>
   </div>
 </body>
 

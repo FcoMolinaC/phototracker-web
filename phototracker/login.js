@@ -29,7 +29,6 @@ function toggleSignIn() {
       console.log(error);
       document.getElementById('quickstart-sign-in').disabled = false;
     });
-    window.open("index.html","_self");
   }
   document.getElementById('quickstart-sign-in').disabled = true;
 }
@@ -65,15 +64,6 @@ function handleSignUp() {
   window.open("index.html","_self");
 }
 
-/**
- * Sends an email verification to the user.
- */
-function sendEmailVerification() {
-  firebase.auth().currentUser.sendEmailVerification().then(function() {
-    alert('Email Verification Sent!');
-  });
-}
-
 function sendPasswordReset() {
   var email = document.getElementById('email').value;
 
@@ -99,33 +89,16 @@ function sendPasswordReset() {
  */
 function initApp() {
   firebase.auth().onAuthStateChanged(function(user) {
-    //document.getElementById('quickstart-verify-email').disabled = true;
     if (user) {
-      var displayName = user.displayName;
-      var email = user.email;
-      var emailVerified = user.emailVerified;
-      var photoURL = user.photoURL;
-      var isAnonymous = user.isAnonymous;
-      var uid = user.uid;
-      var providerData = user.providerData;
-      //document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
-      //document.getElementById('quickstart-sign-in').textContent = 'Cerrar sesión';
-      //document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
-      //if (!emailVerified) {
-       //document.getElementById('quickstart-verify-email').disabled = false;
-      //}
-      // window.open("index.html","_self");
+      window.open("index.html","_self");
     } else {
-      //document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
       document.getElementById('quickstart-sign-in').textContent = 'Iniciar sesión';
-      //document.getElementById('quickstart-account-details').textContent = 'null';
     }
     document.getElementById('quickstart-sign-in').disabled = false;
   });
 
   document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
   document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
-  //document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
   document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
 }
 
