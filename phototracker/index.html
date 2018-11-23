@@ -79,6 +79,11 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
+          <p class="nav-user mb-0">
+            <span id="current-user"></span>
+          </p>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-fw fa-sign-out"></i>Salir</a>
         </li>
@@ -300,18 +305,7 @@
     async defer></script>
     <script src="js/lightbox-plus-jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyDdmSZ16JdVqeYROvIPmTTCYdOmyNzqCj8",
-        authDomain: "phototrack-54e73.firebaseapp.com",
-        databaseURL: "https://phototrack-54e73.firebaseio.com",
-        projectId: "phototrack-54e73",
-        storageBucket: "phototrack-54e73.appspot.com",
-        messagingSenderId: "298608998639"
-      };
-      firebase.initializeApp(config);
-    </script>
+    <script src="vendor/firebase/firebase.config.js"></script>
     <script src="index.js"></script>
   </div>
 </body>

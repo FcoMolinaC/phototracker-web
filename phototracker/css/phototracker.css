@@ -199,6 +199,11 @@ body.fixed-nav {
   }
 }
 
+.nav-user {
+  padding: 0.5em;
+  color: rgba(255,255,255,.75);
+}
+
 #mainNav.fixed-top .sidenav-toggler {
   display: none;
 }
