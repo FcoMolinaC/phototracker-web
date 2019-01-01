@@ -74,6 +74,7 @@ function initApp() {
     });
 
     document.getElementById('sign-out').addEventListener('click', signOut, false);
+    document.getElementById('delete-user').addEventListener('click', deleteUser, false);
 }
 
 window.onload = function() {
