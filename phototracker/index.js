@@ -24,18 +24,14 @@ function currentUser() {
 function userTracks() {
     var myUserId = firebase.auth().currentUser.uid;
     var ref = firebase.database().ref(myUserId + '/tracks');
-    var tracks = [];
     var name, long, date, type;
 
     ref.on("value", function(snapshot) {
-        tracks = [];
+        var tracks = [];
 
         snapshot.forEach(function(childSnapshot) {
-            var key = childSnapshot.key;
             var childData = childSnapshot.val();
-            //console.log(childData["name"]);
             tracks.push(childData);
-            //console.log(tracks);
         });
 
         var result = "<table width=100%>";
@@ -62,19 +58,89 @@ function userTracks() {
         result += "</table>";
 
         document.getElementById("user-tracks").innerHTML = result;
+        document.getElementById("user-tracks-count").innerHTML = tracks.length;
     });
+}
+
+function userPhotos() {
+    var myUserId = firebase.auth().currentUser.uid;
+    var ref = firebase.database().ref(myUserId + '/photos');
+
+    ref.on("value", function(snapshot) {
+        var photos = [];
+
+        snapshot.forEach(function(childSnapshot) {
+            var childData = childSnapshot.val();
+            photos.push(childData);
+        });
+
+        var result = "";
+
+        if (typeof photos !== 'undefined' && photos.length > 0) {
+            for (var i = 0; i < photos.length; i++) {
+                result += "<a href=" + photos[i]["url"] + "><img src=" + photos[i]["url"] + "/></a>";
+            }
+
+            document.getElementById("user-photos").innerHTML = result;
+            document.getElementById("user-photos-count").innerHTML = photos.length;
+        }
+    });
+}
+
+function initMap() {
+    var myUserId = firebase.auth().currentUser.uid;
+    var ref = firebase.database().ref(myUserId + '/tracks');
+    var name, long, date, type;
+    var flightPlanCoordinates;
+
+    var map = new google.maps.Map(document.getElementById('map-canvas'), {
+      zoom: 8,
+      center: {lat: 36.855686, lng: -2.418734},
+      mapTypeId: 'terrain'
+    });
+
+    ref.on("value", function(snapshot) {
+        var tracks = [];
+
+        snapshot.forEach(function(childSnapshot) {
+            var childData = childSnapshot.val();
+            tracks.push(childData);
+        });
+
+        for (var i = 0; i < tracks.length; i++) {
+            console.log(tracks[i]["track"]);
+            // flightPlanCoordinates = tracks[i]["track"];
+        }
+    });
+
+    // var flightPlanCoordinates = [
+    //   {lat: 36.855686, lng: -2.418734},
+    //   {lat: 36.564789, lng: -2.357899},
+    //   {lat: 36.478120, lng: -2.208888},
+    //   {lat: 36.322140, lng: -2.201445},
+    // ];
+    var flightPath = new google.maps.Polyline({
+      path: flightPlanCoordinates,
+      geodesic: true,
+      strokeColor: 'blue',
+      strokeOpacity: 1.0,
+      strokeWeight: 2
+    });
+
+    flightPath.setMap(map);
 }
 
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
+            initMap();
             currentUser();
             userTracks();
+            userPhotos();
         } else {}
     });
 
     document.getElementById('sign-out').addEventListener('click', signOut, false);
-    document.getElementById('delete-user').addEventListener('click', deleteUser, false);
 }
 
 window.onload = function() {

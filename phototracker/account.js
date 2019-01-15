@@ -30,6 +30,24 @@ function deleteUser() {
 	})
 }
 
+function sendPasswordReset() {
+  var email = document.getElementById('email').value;
+
+  firebase.auth().sendPasswordResetEmail(email).then(function() {
+    alert('Te hemos enviado un email para resetear la contraseña');
+  }).catch(function(error) {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+
+    if (errorCode == 'auth/invalid-email') {
+      alert(errorMessage);
+    } else if (errorCode == 'auth/user-not-found') {
+      alert(errorMessage);
+    }
+    console.log(error);
+  });
+}
+
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -37,6 +55,8 @@ function initApp() {
         } else {}
     });
 
+
+    document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
     document.getElementById('sign-out').addEventListener('click', signOut, false);
     document.getElementById('delete-user').addEventListener('click', deleteUser, false);
 }
