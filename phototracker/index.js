@@ -90,6 +90,7 @@ function trackLoad(rowIndex){
     var trackSelected = tracks[rowIndex-1]["track"];
     if (typeof flightPath !== 'undefined') {
         flightPath.setMap(null);
+
         if (typeof photoMark !== 'undefined') {
             photoMark.setMap(null);
         }

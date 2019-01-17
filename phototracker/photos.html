@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="Phototracker web. Track your adventures">
+  <meta name="author" content="F.Molina">
   <title>PhotoTracker - Mis fotos</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -31,12 +31,6 @@
           <a class="nav-link" href="index.html">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Mi panel</span>
-          </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="routes.html">
-            <i class="fa fa-fw fa-map-signs"></i>
-            <span class="nav-link-text">Mis rutas</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
@@ -97,22 +91,11 @@
 
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-camera"></i> Galería
+          <i class="fa fa-camera mr-3"></i>Galería <span class="text-muted"> (haz click en la foto para ubicarla en el mapa)</span>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="gallery">
-              <a href="img/img_fjords.jpg" data-lightbox="roadtrip"><img src="img/img_fjords.jpg" class="img-fluid" alt=""/></a>
-              <a href="img/img_lights.jpg" data-lightbox="roadtrip"><img src="img/img_lights.jpg" class="img-fluid" alt=""/></a>
-              <a href="img/img_mountains.jpg" data-lightbox="roadtrip"><img src="img/img_mountains.jpg" class="img-fluid" alt=""/></a>
-              <a href="img/img_nature.jpg" data-lightbox="roadtrip"><img src="img/img_nature.jpg" class="img-fluid" alt=""/></a>
-              <a href="img/img_lights.jpg" data-lightbox="roadtrip"><img src="img/img_lights.jpg" class="img-fluid" alt=""/></a>
-              <a href="img/img_fjords.jpg" data-lightbox="roadtrip"><img src="img/img_fjords.jpg" class="img-fluid" alt=""/></a>
-              <a href="img/img_lights.jpg" data-lightbox="roadtrip"><img src="img/img_lights.jpg" class="img-fluid" alt=""/></a>
-              <a href="img/img_fjords.jpg" data-lightbox="roadtrip"><img src="img/img_fjords.jpg" class="img-fluid" alt=""/></a>
-              <a href="img/img_nature.jpg" data-lightbox="roadtrip"><img src="img/img_nature.jpg" class="img-fluid" alt=""/></a>
-              <a href="img/img_mountains.jpg" data-lightbox="roadtrip"><img src="img/img_mountains.jpg" class="img-fluid" alt=""/></a>
-            </div>
+        <div class="card-body">
+          <div class="gallery">
+            <span id="user-photos"></span>
           </div>
         </div>
       </div>
@@ -152,15 +135,11 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Page level plugin JavaScript-->
-    <script src="vendor/chart.js/Chart.min.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js"></script>
-    <!-- Custom scripts for this page-->
-    <script src="js/sb-admin-charts.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
     <script src="vendor/firebase/firebase.config.js"></script>
-    <script src="index.js"></script>
+    <script src="photos.js"></script>
   </div>
 </body>
 
