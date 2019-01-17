@@ -133,7 +133,7 @@
 
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-map-signs"></i> Listado de rutas <span class="text-muted"> (haz click en la que desees para verla en el mapa)</span></div>
+          <i class="fa fa-map-signs mr-3"></i>Listado de rutas <span class="text-muted"> (haz click en la que desees para verla en el mapa)</span></div>
         <div class="card-body">
           <div class="table-responsive">
             <div id="user-tracks" class="table table-hover table-bordered" width="100%" cellspacing="0"></div>
@@ -142,7 +142,7 @@
       </div>
 
       <div class="card mb-3 map-card">
-        <div class="card-header"><i class="fa fa-map-signs"></i> Tus rutas</div>
+        <div class="card-header"><i class="fa fa-map mr-3"></i>Tus rutas y fotos georreferenciadas</div>
         <div class="card-body map-container">
           <div id="map-canvas"></div>
         </div>
@@ -152,15 +152,14 @@
         <div class="col-lg-12">
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fa fa-camera"></i> Galería
+              <i class="fa fa-camera mr-3"></i>Galería <span class="text-muted"> (haz click en la foto para ubicarla en el mapa)</span>
             </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="gallery">
-                  <span id="user-photos"></span>
-                  <a href="img/img_fjords.jpg" data-lightbox="roadtrip"><img src="img/img_fjords.jpg" class="img-fluid" alt=""/></a>
-                </div>
+            <div class="card-body">
+              <div class="gallery">
+                <span id="user-photos"></span>
+                <!-- <a href="img/img_fjords.jpg" data-lightbox="roadtrip"><img src="img/img_fjords.jpg" class="img-fluid" alt=""/></a> -->
               </div>
+            </div>
             </div>
           </div>
         </div>
@@ -205,12 +204,12 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpap_CnUj_15RDB9le6D8wK3nvux3CxKk&callback=initMap"
-    async defer></script>
     <script src="js/lightbox-plus-jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
     <script src="vendor/firebase/firebase.config.js"></script>
     <script src="index.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpap_CnUj_15RDB9le6D8wK3nvux3CxKk"
+    async defer></script>
   </div>
 </body>
 

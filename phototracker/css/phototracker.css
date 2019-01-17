@@ -532,8 +532,23 @@ footer.sticky-footer {
 }
 
 .gallery {
-  padding: 5px;
+  text-align: center;
 }
+
+@media (min-width: 768px) {
+  .gallery {
+    text-align: left;
+  }
+}
+
 .gallery img {
-  padding: 5px;
+  padding: 10px;
+}
+
+.table tr {
+  cursor: pointer;
+}
+
+img {
+  cursor: pointer;
 }
