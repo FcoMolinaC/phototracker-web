@@ -29,10 +29,9 @@ function userTracks() {
     var name, long, date, type;
 
     ref.on("value", function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-            var childData = childSnapshot.val();
-            tracks.push(childData);
-        });
+        var lines = snapshot.val();
+        tracks = Object.keys(lines).map(key => lines[key])
+
         initMap();
 
         if (typeof tracks !== 'undefined' && tracks.length > 0) {
@@ -43,6 +42,7 @@ function userTracks() {
             result += "<th>Distancia (metros)</th>";
             result += "<th>Fecha</th>";
             result += "<th>Tipo</th>";
+            result += "<th>Archivo<span class='text-muted ml-2'>(.gpx)</span></th>";
             result += "</tr>";
             result += "</thead>";
             result += "<tbody>";
@@ -53,6 +53,7 @@ function userTracks() {
                 result += "<td>" + tracks[i]["long"] + "</td>";
                 result += "<td>" + tracks[i]["date"] + "</td>";
                 result += "<td>" + tracks[i]["type"] + "</td>";
+                result += "<td><a href='"+ tracks[i]["url"] + "' download='" +tracks[i]["name"] + "' class='btn btn-primary' role='button' target='_blank'>Descarga</a></td>";
                 result += "</tr>";
             }
 
@@ -96,20 +97,27 @@ function trackLoad(rowIndex){
         }
     }
 
-    flightPath = new google.maps.Polyline({
-      path: trackSelected.map(f => {
+    var trackLatLng = trackSelected.map(f => {
                 return {
                     lat: f.latitude,
                     lng: f.longitude,
                 }
-            }),
+            });
+
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < trackLatLng.length; i++) {
+      bounds.extend(trackLatLng[i]);
+    }
+
+    flightPath = new google.maps.Polyline({
+      path: trackLatLng,
       geodesic: true,
       strokeColor: '#fc4c02',
       strokeOpacity: 1.0,
       strokeWeight: 2
     });
 
-    map.setCenter({lat: trackSelected[0]['latitude'], lng: trackSelected[0]['longitude']});
+    map.setCenter(bounds.getCenter());
     flightPath.setMap(map);
 
     event.stopPropagation();
@@ -122,10 +130,8 @@ function userPhotos() {
     var ref = firebase.database().ref(myUserId + '/photos');
 
     ref.on("value", function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-            var childData = childSnapshot.val();
-            photos.push(childData);
-        });
+        var images = snapshot.val();
+        photos = Object.keys(images).map(key => images[key])
 
         var result = "";
 
