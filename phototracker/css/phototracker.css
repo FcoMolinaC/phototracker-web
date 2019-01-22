@@ -545,7 +545,7 @@ footer.sticky-footer {
   padding: 10px;
 }
 
-.table tr {
+.table td {
   cursor: pointer;
 }
 

@@ -53,7 +53,7 @@ function userTracks() {
                 result += "<td>" + tracks[i]["long"] + "</td>";
                 result += "<td>" + tracks[i]["date"] + "</td>";
                 result += "<td>" + tracks[i]["type"] + "</td>";
-                result += "<td><a href='"+ tracks[i]["url"] + "' download='" +tracks[i]["name"] + "' class='btn btn-primary' role='button' target='_blank'>Descarga</a></td>";
+                result += "<td><a href='"+ tracks[i]["url"] + "' download class='btn btn-primary' role='button' target='_blank'>Descarga</a></td>";
                 result += "</tr>";
             }
 
