@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Phototracker web. Track your adventures">
   <meta name="author" content="F.Molina">
-  <title>PhotoTracker - Mis fotos</title>
+  <title>PhotoTracker - Mi cuenta</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -18,17 +18,17 @@
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">
+    <a class="navbar-brand" href="panel.html">
       <img src="img/logo.png" alt="logo" width="30" height="30">
       PhotoTracker
     </a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="panel.html">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Mi panel</span>
           </a>
@@ -48,13 +48,10 @@
             <li>
               <a href="account.html">Mi cuenta</a>
             </li>
-            <li>
-              <a href="">Descarga la app Android</a>
-            </li>
           </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="help.html">
             <i class="fa fa-fw fa-info"></i>
             <span class="nav-link-text">Ayuda</span>
           </a>
@@ -84,21 +81,16 @@
     <div class="container-fluid">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html">Panel de control</a>
+          <a href="panel.html">Panel de control</a>
         </li>
-        <li class="breadcrumb-item active">Fotos</li>
+        <li class="breadcrumb-item active">Mi cuenta</li>
       </ol>
-
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-camera mr-3"></i>Galería <span class="text-muted"> (haz click en la foto para ubicarla en el mapa)</span>
-        </div>
-        <div class="card-body">
-          <div class="gallery">
-            <span id="user-photos"></span>
-          </div>
-        </div>
-      </div>
+      <h1>Mi cuenta</h1>
+      <hr>
+      <p>Desde aquí puedes gestionar tu contraseña o eliminar tu cuenta de usuario.</p>
+      <button class="btn btn-primary" href="index.html" id="quickstart-password-reset">Resetear contraseña</button>
+      <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Borrar mi cuenta</button>
+      <div style="height: 1000px;"></div>
     </div>
 
     <footer class="sticky-footer">
@@ -130,6 +122,24 @@
         </div>
       </div>
     </div>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLabel">¿Seguro que quieres eliminar tu usuario?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Pulsa en "borrar" si deseas eliminar tu usuario.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <button class="btn btn-danger" id="delete-user">Borrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -137,9 +147,27 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <!-- Toggle between fixed and static navbar-->
+    <script>
+    $('#toggleNavPosition').click(function() {
+      $('body').toggleClass('fixed-nav');
+      $('nav').toggleClass('fixed-top static-top');
+    });
+
+    </script>
+    <!-- Toggle between dark and light navbar-->
+    <script>
+    $('#toggleNavColor').click(function() {
+      $('nav').toggleClass('navbar-dark navbar-light');
+      $('nav').toggleClass('bg-dark bg-light');
+      $('body').toggleClass('bg-dark bg-light');
+    });
+
+    </script>
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
     <script src="vendor/firebase/firebase.config.js"></script>
-    <script src="photos.js"></script>
+    <script src="account.js"></script>
   </div>
 </body>
 

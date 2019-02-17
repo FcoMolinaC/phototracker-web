@@ -1,7 +1,7 @@
 
 function signOut() {
     firebase.auth().signOut().then(function() {
-        window.open("login.html", "_self");
+        window.open("index.html", "_self");
     }).catch(function(error) {
         return
     });
@@ -24,7 +24,7 @@ function currentUser() {
 
 function deleteUser() {
   firebase.auth().currentUser.delete().then(function () {
-		window.open("login.html", "_self");
+		window.open("index.html", "_self");
 	}).catch(function (error) {
 	 	console.error({error})
 	})

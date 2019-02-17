@@ -61,7 +61,7 @@ function handleSignUp() {
     console.log(error);
   });
   alert('Usuario creado, iniciando sesión...');
-  window.open("index.html","_self");
+  window.open("panel.html","_self");
 }
 
 function sendPasswordReset() {
@@ -90,7 +90,7 @@ function sendPasswordReset() {
 function initApp() {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      window.open("index.html","_self");
+      window.open("panel.html","_self");
     } else {
       document.getElementById('quickstart-sign-in').textContent = 'Iniciar sesión';
     }

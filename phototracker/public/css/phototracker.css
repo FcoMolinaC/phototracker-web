@@ -498,7 +498,9 @@ footer.sticky-footer {
 }
 
 .bg-dark {
-  background-color: #558B2F !important;
+  background-image: url("../img/background.webp");
+  background-size: 100% 100%;
+  background-attachment: fixed;
  }
 
 .map-card {
