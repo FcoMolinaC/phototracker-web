@@ -33,7 +33,7 @@
         "concat-with-sourcemaps": ">=1.0.6",
         "datatables.net-bs4": "1.10.16",
         "font-awesome": "4.7.0",
-        "jquery": ">=3.4.0",
+        "jquery": ">=3.4.1",
         "jquery.easing": "^1.4.1",
         "npm": "^6.11.3",
         "tar": ">=2.2.2"
