@@ -1,7 +1,7 @@
 {
     "title": "SB Admin",
     "name": "startbootstrap-sb-admin",
-    "version": "4.0.1",
+    "version": "4.0.3",
     "description": "A one page app landing page HTML theme for Bootstrap.",
     "keywords": [
         "css",
@@ -35,7 +35,7 @@
         "font-awesome": "4.7.0",
         "jquery": ">=3.4.0",
         "jquery.easing": "^1.4.1",
-        "npm": "^6.9.0",
+        "npm": "^6.11.3",
         "tar": ">=2.2.2"
     },
     "devDependencies": {
